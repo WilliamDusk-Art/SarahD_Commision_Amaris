@@ -1,0 +1,5 @@
+string $array[] = `ls -sl`;
+for ($item in $array)
+{
+	setAttr ($item + ".rotateOrder") 2;
+}

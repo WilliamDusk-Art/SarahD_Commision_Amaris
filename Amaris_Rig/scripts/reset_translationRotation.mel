@@ -1,0 +1,11 @@
+string $array[] = `ls -sl`;
+for ($item in $array)
+{
+    setAttr ($item + ".translateX") 0;
+	setAttr ($item + ".translateY") 0;
+	setAttr ($item + ".translateZ") 0;
+    
+    setAttr ($item + ".rotateX") 0;
+	setAttr ($item + ".rotateY") 0;
+	setAttr ($item + ".rotateZ") 0;
+}

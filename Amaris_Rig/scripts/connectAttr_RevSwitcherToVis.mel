@@ -1,0 +1,19 @@
+//Verificar si hay objetos seleccionados
+string $selectedObjs[] = `ls -selection`;
+if(size($selectedObjs) < 1) {
+    error("Debe seleccionar al menos un objeto");
+}
+
+//Obtener el nombre del primer objeto seleccionado
+string $firstObj = $selectedObjs[0];
+
+//Obtener el valor del atributo "IKFK_Switch" del primer objeto seleccionado
+float $visibilityValue = `getAttr ($firstObj+".output.outputY")`;
+
+//Recorrer todos los objetos seleccionados
+for($i=1; $i<size($selectedObjs); $i++) {
+    $obj = $selectedObjs[$i];
+    //Conectar el atributo "visibility" del objeto actual al atributo "visibility" del primer objeto seleccionado
+    connectAttr -f ($firstObj+".output.outputY") ($obj+".visibility");
+   
+}
